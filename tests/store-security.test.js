@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';import { hashPassword,verifyPassword,signToken,verifyToken,can } from '../src/security.js';import { buildSeed } from '../src/seed-data.js';
+
+test('password hashing verifies correct password only',()=>{const h=hashPassword('SafePass@123');assert.equal(verifyPassword('SafePass@123',h),true);assert.equal(verifyPassword('wrong',h),false);assert.notEqual(h,'SafePass@123')});
+test('signed token round trips',()=>{const token=signToken({id:'U1',email:'u@example.com',role:'QA Engineer',name:'QA'});const claims=verifyToken(token);assert.equal(claims.sub,'U1');assert.equal(claims.role,'QA Engineer');assert.equal(verifyToken(token+'x'),null)});
+test('role permissions are enforced',()=>{assert.equal(can('QA Engineer','tests:write'),true);assert.equal(can('Viewer','tests:write'),false);assert.equal(can('Viewer','read'),true)});
+test('seed data contains linked lifecycle collections',()=>{const d=buildSeed();for(const key of ['projects','requirements','testCases','testRuns','defects','vulnerabilities','releases','tools'])assert.ok(d[key].length>0,key);const reqIds=new Set(d.requirements.map(x=>x.id));assert.ok(d.testCases.flatMap(x=>x.requirementIds).every(id=>reqIds.has(id)))});

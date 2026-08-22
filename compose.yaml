@@ -1,0 +1,11 @@
+services:
+  softify:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      JWT_SECRET: "replace-with-a-long-random-production-secret"
+    volumes:
+      - softify-data:/app/data
+volumes:
+  softify-data:

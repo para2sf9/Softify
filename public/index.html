@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-accent="green">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Softify — unified software engineering, QA/QC, testing, security, automation and release management.">
+  <title>Softify — Engineering Quality Platform</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <section class="login-screen" id="loginScreen" aria-labelledby="loginTitle">
+    <div class="login-art" aria-hidden="true">
+      <div class="login-brand"><span class="brand-mark"><i></i><i></i><i></i></span><strong>Soft<span>ify</span></strong></div>
+      <div class="login-copy"><span class="eyebrow">Engineering excellence, connected</span><h1>Plan. Build.<br><em>Test everything.</em></h1><p>One lifecycle workspace for requirements, QA, QC, test management, security, automation, releases, and quality intelligence.</p></div>
+      <div class="lifecycle-orbit"><div class="orbit-core">QF</div><span class="o1">REQ</span><span class="o2">CODE</span><span class="o3">TEST</span><span class="o4">SEC</span><span class="o5">SHIP</span><span class="o6">LEARN</span></div>
+      <div class="login-proof"><span>SDLC</span><i></i><span>STLC</span><i></i><span>QA / QC</span><i></i><span>DevSecOps</span></div>
+    </div>
+    <div class="login-panel">
+      <form class="login-card" id="loginForm">
+        <div class="mobile-login-brand"><span class="brand-mark"><i></i><i></i><i></i></span><strong>Soft<span>ify</span></strong></div>
+        <span class="eyebrow">Welcome back</span><h2 id="loginTitle">Sign in to your workspace</h2><p>Use a demo account to explore the full platform.</p>
+        <label class="field"><span>Email address</span><input name="email" type="email" required autocomplete="username" value="admin@softify.local"></label>
+        <label class="field"><span>Password</span><div class="password-wrap"><input name="password" type="password" required autocomplete="current-password" value="Admin@123"><button type="button" id="togglePassword" aria-label="Show password">◉</button></div></label>
+        <div class="login-error" id="loginError" role="alert"></div>
+        <button class="button primary wide" id="loginButton" type="submit">Enter Softify <span>→</span></button>
+        <div class="demo-accounts"><strong>Demo accounts</strong><button type="button" data-demo="admin@softify.local|Admin@123">Admin</button><button type="button" data-demo="qa@softify.local|Quality@123">QA</button><button type="button" data-demo="dev@softify.local|Develop@123">Developer</button><button type="button" data-demo="security@softify.local|Security@123">Security</button></div>
+        <small class="login-note">Local demonstration build. Change demo credentials and JWT secret before deployment.</small>
+      </form>
+    </div>
+  </section>
+
+  <div class="app-shell hidden" id="appShell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand"><a href="#/dashboard"><span class="brand-mark"><i></i><i></i><i></i></span><strong>Soft<span>ify</span></strong></a><button class="collapse-button" id="collapseSidebar" type="button" aria-label="Collapse sidebar">‹</button></div>
+      <nav class="side-nav" id="sideNav" aria-label="Application navigation">
+        <div class="nav-group"><span class="nav-label">Overview</span><a href="#/dashboard" data-route="dashboard"><b>⌂</b><span>Dashboard</span></a><a href="#/projects" data-route="projects"><b>▦</b><span>Projects</span></a></div>
+        <div class="nav-group"><span class="nav-label">Plan & Design</span><a href="#/requirements" data-route="requirements"><b>≡</b><span>Requirements</span></a><a href="#/traceability" data-route="traceability"><b>⌘</b><span>Traceability</span></a><a href="#/documents" data-route="documents"><b>▤</b><span>Documents</span></a></div>
+        <div class="nav-group"><span class="nav-label">Test Management</span><a href="#/assets" data-route="assets"><b>◇</b><span>Test Assets</span></a><a href="#/testPlans" data-route="testPlans"><b>☷</b><span>Test Plans</span></a><a href="#/testCases" data-route="testCases"><b>✓</b><span>Test Cases</span></a><a href="#/testRuns" data-route="testRuns"><b>▶</b><span>Executions</span></a><a href="#/defects" data-route="defects"><b>!</b><span>Defects</span><i class="nav-count" id="defectNavCount">0</i></a></div>
+        <div class="nav-group"><span class="nav-label">Quality & Security</span><a href="#/qualityAudits" data-route="qualityAudits"><b>♢</b><span>QA / QC</span></a><a href="#/vulnerabilities" data-route="vulnerabilities"><b>⬡</b><span>Security</span></a><a href="#/automationRuns" data-route="automationRuns"><b>↯</b><span>Automation</span></a></div>
+        <div class="nav-group"><span class="nav-label">Delivery</span><a href="#/environments" data-route="environments"><b>☁</b><span>Environments</span></a><a href="#/releases" data-route="releases"><b>↑</b><span>Releases</span></a><a href="#/tools" data-route="tools"><b>⌁</b><span>Testing Tools</span></a></div>
+        <div class="nav-group"><span class="nav-label">Insights</span><a href="#/reports" data-route="reports"><b>▥</b><span>Reports</span></a><a href="#/ai" data-route="ai"><b>✦</b><span>AI Assistant</span><i class="new-pill">LAB</i></a></div>
+      </nav>
+      <div class="sidebar-footer"><div class="user-mini"><span class="avatar" id="sideAvatar">AM</span><div><strong id="sideUserName">Alex Morgan</strong><small id="sideUserRole">Admin</small></div><button id="logoutButton" type="button" aria-label="Sign out">↪</button></div></div>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <div class="topbar-left"><button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open navigation">☰</button><div class="breadcrumbs" id="breadcrumbs"><span>Softify</span><b>/</b><strong>Dashboard</strong></div></div>
+        <div class="topbar-actions">
+          <label class="global-search"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search workspace…"><kbd>⌘ K</kbd></label>
+          <div class="accent-menu"><button class="accent-dot green active" data-accent="green" aria-label="Green accent"></button><button class="accent-dot red" data-accent="red" aria-label="Red accent"></button><button class="accent-dot blue" data-accent="blue" aria-label="Blue accent"></button><button class="accent-dot purple" data-accent="purple" aria-label="Purple accent"></button></div>
+          <button class="top-icon" id="themeButton" type="button" aria-label="Switch theme"><span class="theme-sun">☀</span><span class="theme-moon">☾</span></button>
+          <button class="top-icon notification-button" type="button" aria-label="Notifications">♧<i></i></button>
+          <button class="top-avatar" id="profileButton" type="button"><span class="avatar" id="topAvatar">AM</span><span id="topUserName">Alex Morgan</span><b>⌄</b></button>
+        </div>
+      </header>
+      <main class="main-content" id="mainContent" tabindex="-1"><div class="page-loader"><span></span><span></span><span></span></div></main>
+    </div>
+  </div>
+
+  <dialog class="entity-modal" id="entityModal">
+    <form id="entityForm">
+      <header><div><span class="eyebrow" id="modalKicker">Workspace item</span><h2 id="modalTitle">Create item</h2></div><button class="icon-button" id="modalClose" type="button" aria-label="Close">×</button></header>
+      <div class="modal-fields" id="modalFields"></div>
+      <div class="form-error" id="formError" role="alert"></div>
+      <footer><button class="button secondary" id="modalCancel" type="button">Cancel</button><button class="button primary" id="modalSubmit" type="submit">Save</button></footer>
+    </form>
+  </dialog>
+
+  <div class="command-palette hidden" id="commandPalette" role="dialog" aria-modal="true" aria-label="Command palette"><div class="command-box"><label><span>⌕</span><input id="commandInput" placeholder="Go to a module…"></label><div id="commandResults"></div><small>↑↓ navigate · Enter open · Esc close</small></div></div>
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+</body>
+</html>
